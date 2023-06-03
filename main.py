@@ -1,47 +1,20 @@
-import turtle
+import time
 
-drawing_board = turtle.getscreen()
-drawing_board.bgcolor("light blue")
-drawing_board.title("python Turtle")
 
-'''
-turtle_instance = turtle.Turtle()
-turtle_instance.forward(100)
-turtle_instance_2 = turtle.Turtle()
-turtle_instance_2.left(180)
-turtle_instance_2.forward(100)
-'''
-#square
-'''
-turtle_instance = turtle.Turtle()
-turtle_instance.forward(200)
-turtle_instance.left(90)
-turtle_instance.forward(200)
-turtle_instance.left(90)
-turtle_instance.forward(200)
-turtle_instance.left(90)
-turtle_instance.forward(200)
-'''
-#loop
-'''
-for i in range(4):
-    turtle_instance.forward(200)
-    turtle_instance.left(90)
+# define the countdown func.
+def countdown(t):
+    while t:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
 
-#star
-turtle_instance = turtle.Turtle()
-for i in range(5):
-    turtle_instance.left(144)
-    turtle_instance.forward(100)
-'''
-#polygon
-turtle_instance = turtle.Turtle()
-num_sides = 6
-angle = 360.0 / num_sides
-side_length = 100
+    print('Fire in the hole!!')
 
-for i in range(num_sides):
-    turtle_instance.right(angle)
-    turtle_instance.forward(side_length)
 
-turtle.done()
+# input time in seconds
+t = input("Enter the time in seconds: ")
+
+# function call
+countdown(int(t))
